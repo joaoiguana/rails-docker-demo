@@ -22,6 +22,9 @@ RUN bundle config set --local without 'development test' && \
 # Copy the rest of the application
 COPY . .
 
+# asset precompilation
+RUN bundle exec rake assets:precompile RAILS_ENV=production
+
 # Expose port 3000
 EXPOSE 3000
 
